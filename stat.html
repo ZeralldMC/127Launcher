@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal Statistics</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript" src="setTheme.js"></script>
+    <script>
+        function readTextFile_userdataHere(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+//usage:
+readTextFile_userdataHere("userdata.json", function(text){
+    var data = JSON.parse(text);
+    var username = data["username"];
+    var usernameTag = document.getElementById("username");
+    usernameTag.innerHTML = username;
+    console.log(username)
+});
+    </script>
+</head>
+
+<body id="theme">
+    <br><br><br>
+    <section class="wellcome_area clearfix" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <img style="width: 20%;padding:5px" src="https://127games.ml/websection/assets/launchername.png">
+                        <h2>Statistics</h2>
+                        <p>127GAMES Statistics</p>
+                    </div>
+                    <div class="appsarea">
+                        <div class="num-group">
+                            <h4 id="regdate" style="font-size: 20px;">000</h4>
+                            <p>Reg. date</p>
+                        </div>
+                        <div class="num-group">
+                            <h4 id="medals">00</h4>
+                            <p>Medals</p>
+                        </div>
+                        <div class="num-group">
+                            <h4 id="items">0000</h4>
+                            <p>Items</p>
+                        </div>
+                        <br><br>
+                        <div class="num-group">
+                            <h4 id="games">0000</h4>
+                            <p>Games</p>
+                        </div>
+                        <div class="num-group">
+                            <h4 id="ws_items">0000</h4>
+                            <p>Workshop</p>
+                        </div>
+                        <div class="num-group">
+                            <h4 id="cases">0000</h4>
+                            <p>Items <font style="opacity:0.5;font-size:15px;">CASES</font></p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                    <br><br>
+                    <div class="welcome-thumb">
+                        <div class="usersection" align="left">
+                            <h6 style="color:white"><font class="numcircle" id="numcircle"></font>
+                                <span id="avatar"></span>
+                            <font style="margin-left:1%;" id="username">
+                                Username 
+                            </font>
+                            <span id="userbadge1"></span>
+                            <span id="userbadge2"></span>
+                            </h6>
+                            <button class="btnico" onclick="goto('index.html')"><i class="bi bi-house-door-fill"></i></button>
+                            <font style="opacity:0.5;color:white;font-weight:400;" id="balance"><i class="bi bi-wallet2"></i> 0$</font>
+                            </div>
+                            <br>
+                            <div class="btnsection">
+                                <button onclick="logout()"><i class="bi bi-door-open-fill"></i></button> 
+                                <button class="btnnobg" onclick='openInBrowser("https://127games.ml/analytics/")'>Web analytics</button> 
+                        </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="stat.js"></script>
+    <script type="text/javascript" src="main_functions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+$.getJSON("userdata.json", function(data) {
+    console.log("AJAX getJSON, username: " + data["username"]);
+    var doc = document.getElementById("username");
+    doc.innerHTML = data["username"]
+    var username = data["username"];
+    var isDisabledOnline = data["DisableOnline"];
+    if(isDisabledOnline == "false") {
+        document.getElementById("numcircle").classList.add("green");
+    }
+    else {
+        document.getElementById("numcircle").classList.add("gray");
+    }
+    $.ajax({
+            url: "https://127games.ml/websection/api/user.php?name=" + username,
+            type: "POST",
+            dataType: "json",
+            crossDomain: true,
+            format: "json",
+            success:function(json){
+                console.log('Data from server: ' + JSON.stringify(json["id"])); 
+                var regdate = document.getElementById('regdate');
+                regdate.innerHTML = json["regdate"];     
+                var medals = document.getElementById('medals');
+                medals.innerHTML = json["medalscol"];         
+                var items = document.getElementById('items');
+                items.innerHTML = json["items"];  
+                var games = document.getElementById('games');
+                games.innerHTML = json["games"]; 
+                var ws_items = document.getElementById('ws_items');
+                ws_items.innerHTML = json["workshop_items"]; 
+                var cases = document.getElementById('cases');
+                cases.innerHTML = json["cases_opened"]; 
+                var balance = document.getElementById('balance');
+                balance.innerHTML = '<i class="bi bi-wallet2"></i> ' + json["bal"] + "$"; 
+                var verifyCheck = json["verify"];
+                var modCheck = json["mod"];
+                var modIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/modBadge.svg?u=" + makeid(8) + "'>"
+                var verifyIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/verifyBadge.svg?u=" + makeid(8) + "'>"
+                if(verifyCheck == "1") {
+                    if(modCheck == "0") {
+                        document.getElementById("userbadge1").innerHTML = verifyIcon;
+                        document.getElementById("userbadge2").innerHTML = "";
+                    }    
+                }
+                if(modCheck == "1") {
+                    if(verifyCheck == "0") {
+                        document.getElementById("userbadge1").innerHTML = modIcon;
+                        document.getElementById("userbadge1").innerHTML = "";
+                    }    
+                }
+                if(verifyCheck == "1") {
+                    document.getElementById("userbadge1").innerHTML = verifyIcon;    
+                }
+                if(modCheck == "1") {
+                    document.getElementById("userbadge2").innerHTML = modIcon;    
+                }
+                console.log(data["username"])
+            },
+            error:function(error){
+                console.log('message Error' + JSON.stringify(error));
+            }
+        }); 
+        } 
+    );
+    </script>
+</body>
+</html>

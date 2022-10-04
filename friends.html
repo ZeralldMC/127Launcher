@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Personal Statistics</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript" src="setTheme.js"></script>
+    <script>
+        function readTextFile_userdataHere(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+//usage:
+readTextFile_userdataHere("userdata.json", function(text){
+    var data = JSON.parse(text);
+    var username = data["username"];
+    var usernameTag = document.getElementById("username");
+    usernameTag.innerHTML = username;
+    console.log(username)
+});
+    </script>
+</head>
+
+<body id="theme">
+    <br><br><br>
+    <section class="wellcome_area clearfix" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <img style="width: 20%;padding:5px" src="https://127games.ml/websection/assets/launchername.png">
+                        <h2>Friends <font id="friends_count" style="opacity: 0.5"></font></h2>
+                        <p>Welcome to friends zone <span style="margin: 3px 10px;" class="beta-ico">BETA</span></p>
+                    </div>
+                    <div class="appsarea">
+                    <!-- user -->
+                        <div class="num-group">
+                            <span id='fbadge_u1_1'></span> 
+                            <span id='fbadge_u1_2'></span>
+                            <span id="f_avatar1"></span>
+                            <h4 id="f_username1" class="friendUsername"></h4>
+                            <p id="f_online1" class="friendOnline offline">Offline</p>
+                        </div>
+                    <!-- user end -->
+                    <!-- user -->
+                    <div class="num-group">
+                        <span id='fbadge_u2_1'></span> 
+                        <span id='fbadge_u2_2'></span>
+                        <span id="f_avatar2"></span>
+                        <h4 id="f_username2" class="friendUsername"></h4>
+                        <p id="f_online2" class="friendOnline offline">Offline</p>
+                    </div>
+                <!-- user end -->
+                    <!-- user -->
+                    <div class="num-group">
+                        <span id='fbadge_u3_1'></span> 
+                        <span id='fbadge_u3_2'></span>
+                        <span id="f_avatar3"></span>
+                        <h4 id="f_username3" class="friendUsername"></h4>
+                        <p id="f_online3" class="friendOnline offline">Offline</p>
+                    </div>
+                <!-- user end -->
+                    <!-- user -->
+                    <div class="num-group">
+                        <span id='fbadge_u4_1'></span> 
+                        <span id='fbadge_u4_2'></span>
+                        <span id="f_avatar4"></span>
+                        <h4 id="f_username4" class="friendUsername"></h4>
+                        <p id="f_online4" class="friendOnline offline">Offline</p>
+                    </div>
+                <!-- user end -->
+                <br>
+                <br>
+                    <!-- user -->
+                <div class="num-group">
+                    <span id='fbadge_u5_1'></span> 
+                    <span id='fbadge_u5_2'></span>
+                    <span id="f_avatar5"></span>
+                    <h4 id="f_username5" class="friendUsername"></h4>
+                    <p id="f_online5" class="friendOnline offline">Offline</p>
+                </div>
+                <!-- user end -->
+                  <!-- user -->
+                  <div class="num-group">
+                    <span id='fbadge_u6_1'></span> 
+                    <span id='fbadge_u6_2'></span>
+                    <span id="f_avatar6"></span>
+                    <h4 id="f_username6" class="friendUsername"></h4>
+                    <p id="f_online6" class="friendOnline offline">Offline</p>
+                </div>
+                <!-- user end -->
+                  <!-- user -->
+                  <div class="num-group">
+                    <span id='fbadge_u7_1'></span> 
+                    <span id='fbadge_u7_2'></span>
+                    <span id="f_avatar7"></span>
+                    <h4 id="f_username7" class="friendUsername"></h4>
+                    <p id="f_online7" class="friendOnline offline">Offline</p>
+                </div>
+                <!-- user end -->
+                  <!-- user -->
+                  <div class="num-group">
+                    <span id='fbadge_u8_1'></span> 
+                    <span id='fbadge_u8_2'></span>
+                    <span id="f_avatar8"></span>
+                    <h4 id="f_username8" class="friendUsername"></h4>
+                    <p id="f_online8" class="friendOnline offline">Offline</p>
+                </div>
+                <!-- user end -->
+                  <!-- user -->
+                  <div class="num-group">
+                    <span id='fbadge_u9_1'></span> 
+                    <span id='fbadge_u9_2'></span>
+                    <span id="f_avatar9"></span>
+                    <h4 id="f_username9" class="friendUsername"></h4>
+                    <p id="f_online9" class="friendOnline offline">Offline</p>
+                </div>
+                <!-- user end -->
+                  <!-- user -->
+                  <div class="num-group">
+                    <span id='fbadge_u10_1'></span> 
+                    <span id='fbadge_u10_2'></span>
+                    <span id="f_avatar10"></span>
+                    <h4 id="f_username10" class="friendUsername"></h4>
+                    <p id="f_online10" class="friendOnline offline">Offline</p>
+                </div>
+                <!-- user end -->
+                    </div>
+                </div>
+                <br>
+                    <br><br>
+                    <div class="welcome-thumb" style="margin-top: -20%;bottom:auto;">
+                        <div class="usersection" align="left">
+                            <h6 style="color:white"><font class="numcircle" id="numcircle"></font>
+                                <span id="avatar"></span>
+                            <font style="margin-left:1%;" id="username">
+                                username
+                            </font>
+                            <span id="userbadge1"></span>
+                            <span id="userbadge2"></span>
+                            </h6>
+                            <button class="btnico" onclick="goto('index.html')"><i class="bi bi-house-door-fill"></i></button>
+                            <font style="opacity:0.5;color:white;font-weight:400;" id="balance"><i class="bi bi-wallet2"></i> 0$</font>
+                            </div>
+                            <br>
+                            <div class="btnsection">
+                                <button onclick="logout()"><i class="bi bi-door-open-fill"></i></button> 
+                                <button class="btnnobg" onclick='openInBrowser("https://127games.ml/analytics/")'>Web analytics</button> 
+                        </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="stat.js"></script>
+    <script type="text/javascript" src="main_functions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+function removeChars(target) {
+    var limit = "8";
+    if(target.length > limit) {
+        var result = target.substring(0,8) + "...";
+    }
+    else {
+        var result = target;
+    }
+    return result;
+}
+$.getJSON("userdata.json", function(data) {
+    console.log("AJAX getJSON, username: " + data["username"]);
+    var doc = document.getElementById("username");
+    doc.innerHTML = data["username"]
+    var username = data["username"];
+    var id = data["id"];
+    var isDisabledOnline = data["DisableOnline"];
+    if(isDisabledOnline == "false") {
+        document.getElementById("numcircle").classList.add("green");
+    }
+    else {
+        document.getElementById("numcircle").classList.add("gray");
+    }
+    $.getJSON("https://127games.ml/websection/api/userbyid.php?id=" + id, function(data) {
+        document.getElementById("friends_count").innerHTML = data["friends"];
+    })
+    $.ajax({
+            url: "https://127games.ml/websection/api/user.php?name=" + username,
+            type: "POST",
+            dataType: "json",
+            crossDomain: true,
+            format: "json",
+            success:function(json){
+                console.log('Data from server: ' + JSON.stringify(json["id"])); 
+                var balance = document.getElementById('balance');
+                balance.innerHTML = '<i class="bi bi-wallet2"></i> ' + json["bal"] + "$"; 
+                var verifyCheck = json["verify"];
+                var modCheck = json["mod"];
+                var modIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/modBadge.svg?u=" + makeid(8) + "'>"
+                var verifyIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/verifyBadge.svg?u=" + makeid(8) + "'>"
+                if(verifyCheck == "1") {
+                    if(modCheck == "0") {
+                        document.getElementById("userbadge1").innerHTML = verifyIcon;
+                        document.getElementById("userbadge2").innerHTML = "";
+                    }    
+                }
+                if(modCheck == "1") {
+                    if(verifyCheck == "0") {
+                        document.getElementById("userbadge1").innerHTML = modIcon;
+                        document.getElementById("userbadge1").innerHTML = "";
+                    }    
+                }
+                if(verifyCheck == "1") {
+                    document.getElementById("userbadge1").innerHTML = verifyIcon;    
+                }
+                if(modCheck == "1") {
+                    document.getElementById("userbadge2").innerHTML = modIcon;    
+                }
+                console.log(data["username"])
+            },
+            error:function(error){
+                console.log('message Error' + JSON.stringify(error));
+            }
+        });
+        $.ajax({
+                url: "https://127games.ml/api/friendList.php?id=" + id,
+                type: "POST",
+                dataType: "json",
+                crossDomain: true,
+                format: "json",
+                success:function(json){
+                    var friend1 = JSON.stringify(json["collect"][1]["friend"]);
+                    var friend2 = JSON.stringify(json["collect"][2]["friend"]);
+                    var friend3 = JSON.stringify(json["collect"][3]["friend"]);
+                    var friend4 = JSON.stringify(json["collect"][4]["friend"]);
+                    var friend5 = JSON.stringify(json["collect"][5]["friend"]);
+                    var friend6 = JSON.stringify(json["collect"][6]["friend"]);
+                    var friend7 = JSON.stringify(json["collect"][7]["friend"]);
+                    var friend8 = JSON.stringify(json["collect"][8]["friend"]);
+                    var friend9 = JSON.stringify(json["collect"][9]["friend"]);
+                    var friend10 = JSON.stringify(json["collect"][10]["friend"]);
+
+
+                    var avatar1 = document.getElementById("f_avatar1");
+                    var avatar2 = document.getElementById("f_avatar2");
+                    var avatar3 = document.getElementById("f_avatar3");
+                    var avatar4 = document.getElementById("f_avatar4");
+                    var avatar5 = document.getElementById("f_avatar5");
+                    var avatar6 = document.getElementById("f_avatar6");
+                    var avatar7 = document.getElementById("f_avatar7");
+                    var avatar8 = document.getElementById("f_avatar8");
+                    var avatar9 = document.getElementById("f_avatar9");
+                    var avatar10 = document.getElementById("f_avatar10");
+
+                    var avatarWay = "<img class='friendAvatar' src='https://127games.ml/profile/uploads/avatars/";
+
+                    avatar1.innerHTML = avatarWay + friend1.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar2.innerHTML = avatarWay + friend2.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar3.innerHTML = avatarWay + friend3.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar4.innerHTML = avatarWay + friend4.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar5.innerHTML = avatarWay + friend5.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar6.innerHTML = avatarWay + friend6.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar7.innerHTML = avatarWay + friend7.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar8.innerHTML = avatarWay + friend8.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar9.innerHTML = avatarWay + friend9.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+                    avatar10.innerHTML = avatarWay + friend10.replace(/"/g, "") + ".png?u=" + makeid(8) + "'>";
+
+
+                    console.log("Friend list get");
+
+                    var verifyBadge = "<img class='userbadge_f' src='https://127games.ml/websection/assets/verifyBadge.svg?u=" + makeid(8) + "'>"
+                    var modBadge = "<img class='userbadge_f' src='https://127games.ml/websection/assets/modBadge.svg?u=" + makeid(8) + "'>"
+
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend1.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online1").classList.add("online");
+                            document.getElementById("f_online1").classList.remove("offline");
+                            document.getElementById("f_online1").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online1").classList.remove("online");
+                        }
+                        document.getElementById("f_username1").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u1_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u1_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u1_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u1_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend2.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online2").classList.add("online");
+                            document.getElementById("f_online2").classList.remove("offline");
+                            document.getElementById("f_online2").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online2").classList.remove("online");
+                        }
+                        document.getElementById("f_username2").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u2_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u2_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u2_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u2_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend3.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online3").classList.add("online");
+                            document.getElementById("f_online3").classList.remove("offline");
+                            document.getElementById("f_online3").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online3").classList.remove("online");
+                        }
+                        document.getElementById("f_username3").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u3_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u3_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u3_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u3_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend4.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online4").classList.add("online");
+                            document.getElementById("f_online4").classList.remove("offline");
+                            document.getElementById("f_online4").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online4").classList.remove("online");
+                        }
+                        document.getElementById("f_username4").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u4_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u4_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u4_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u4_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend5.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online5").classList.add("online");
+                            document.getElementById("f_online5").classList.remove("offline");
+                            document.getElementById("f_online5").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online5").classList.remove("online");
+                        }
+                        document.getElementById("f_username5").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u5_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u5_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u5_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u5_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend6.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online6").classList.add("online");
+                            document.getElementById("f_online6").classList.remove("offline");
+                            document.getElementById("f_online6").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online6").classList.remove("online");
+                        }
+                        document.getElementById("f_username6").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u6_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u6_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u6_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u6_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend7.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online7").classList.add("online");
+                            document.getElementById("f_online7").classList.remove("offline");
+                            document.getElementById("f_online7").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online7").classList.remove("online");
+                        }
+                        document.getElementById("f_username7").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u7_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u7_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u7_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u7_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend7.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online8").classList.add("online");
+                            document.getElementById("f_online8").classList.remove("offline");
+                            document.getElementById("f_online8").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online8").classList.remove("online");
+                        }
+                        document.getElementById("f_username8").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u8_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u8_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u8_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u8_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend7.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online9").classList.add("online");
+                            document.getElementById("f_online9").classList.remove("offline");
+                            document.getElementById("f_online9").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online9").classList.remove("online");
+                        }
+                        document.getElementById("f_username9").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u9_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u9_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u9_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u9_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                    $.getJSON('https://127games.ml/websection/api/userbyid.php?id=' + friend7.replace(/"/g, ""), function(data) {
+                        var verifiedCheck = data["verify"]
+                        var moderatorCheck = data["mod"];
+                        var isOnline = data["inApp"];
+                        if(isOnline == "1") {
+                            document.getElementById("f_online10").classList.add("online");
+                            document.getElementById("f_online10").classList.remove("offline");
+                            document.getElementById("f_online10").textContent = "Online";
+                        }
+                        else {
+                            document.getElementById("f_online10").classList.remove("online");
+                        }
+                        document.getElementById("f_username10").innerHTML = removeChars(data["name"]);
+                        if(verifiedCheck == "1") {
+                            document.getElementById("fbadge_u10_1").innerHTML = verifyBadge
+                            if(verifiedCheck == "0") {
+                                if(modCheck == "1") {
+                                    document.getElementById("fbadge_u10_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                        if(moderatorCheck == "1") {
+                            document.getElementById("fbadge_u10_2").innerHTML = modBadge
+                            if(modCheck == "0") {
+                                if(verifiedCheck == "1") {
+                                    document.getElementById("fbadge_u10_1").innerHTML = modBadge
+                                }
+                            }
+                        }
+                    });
+                },
+                error:function(error){
+                    console.log('message Error' + JSON.stringify(error));
+                }
+            });
+            });
+    </script>
+</body>
+</html>

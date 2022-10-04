@@ -1,0 +1,632 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,700|Montserrat:400,500,700');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap');
+@import 'css/bootstrap.min.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: rgb(0,29,36);
+    background: linear-gradient(49deg, rgba(0,29,36,1) 0%, rgba(0,0,0,1) 0%, rgba(45,45,45,1) 100%);
+    color: white!important;
+    transition: .4s;
+}
+
+.game-full {
+    background: linear-gradient(0deg, #ebebeb1f, #ebebeb1f);
+    background-size: cover;
+    background-position: center;
+    width: 350px;
+    height: 80px;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 20px;
+}
+
+.game-full .gametitle {
+    text-shadow: #00000094 0px 2px 0px;
+    font-weight: 600;
+    width: 70%;
+    margin-left: 20%;
+}
+
+.game-full .gamever {
+    opacity: 0.5;
+    width: 70%;
+    text-shadow: #00000094 0px 2px 0px;
+    font-weight: 200;
+    margin-top: -5%;
+    margin-left: 20%;
+}
+
+.game-full img {
+    width: 50px;
+    position: absolute;
+}
+
+.theme-amiac {
+    background: rgb(0,29,36);
+    background: linear-gradient(49deg, rgba(0,29,36,1) 0%, rgba(0,0,0,1) 0%, rgba(45,45,45,1) 100%);
+}
+.theme-lifestyle {
+    background: rgb(0,29,36);
+    background: linear-gradient(49deg, rgba(0,29,36,1) 0%, rgb(251 43 43) 0%, rgb(219 199 55) 100%);
+}
+.theme-greenapple {
+    background: rgb(0,29,36);
+    background: linear-gradient(49deg, rgba(0,29,36,1) 0%, rgb(34 245 109) 0%, rgb(53 158 249) 100%);
+}
+
+.theme-lightpurple {
+    background: rgb(0,29,36);
+    background: linear-gradient(49deg, rgba(0,29,36,1) 0%, rgb(35 42 255) 0%, rgb(195 51 255) 100%);
+}
+
+.theme-spaceengine {
+    background: rgb(0,29,36);
+    background: linear-gradient(49deg, rgb(0 29 36 / 0%) 0%, rgb(0 0 0) 0%, rgb(43 157 255) 100%);
+}
+
+.theme-earthperspective {
+    background: linear-gradient(49deg, rgb(0 29 36 / 0%) 0%, rgb(0 0 0) 0%, rgb(51 227 255 / 70%) 100%), url("https://127games.ml/websection/backgrounds/earth-perspective.png");
+    background-size: cover;
+}
+
+.theme-fauna {
+    background: linear-gradient(1deg, rgb(0 29 36 / 0%) 0%, rgb(98 47 255 / 63%) 0%, rgb(41 122 191 / 97%) 100%), url("https://127games.ml/websection/backgrounds/fauna.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.theme-moonside {
+    background: linear-gradient(49deg, rgb(0 29 36 / 0%) 0%, rgb(0 0 0) 0%, rgb(36 93 102 / 55%) 100%), url("https://127games.ml/websection/backgrounds/moonside.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.userbadge {
+    width: 16px;
+    margin-top: -3px;
+}
+
+.userbadge_f {
+    width: 16px;
+    filter: drop-shadow(0px 0px 2px #0008);
+    margin-bottom: -150px;
+}
+
+.modbadge {
+    width: 20px;
+    margin-top: -3px;
+    margin-left: 1px;
+}
+
+.f_username {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.icobox {
+    width: 20px;
+    margin: -4px 1px;
+}
+
+html, body {
+    height: 100%;
+  }
+
+.game {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border: 2px #ffffff1c solid;
+    transition: .4s;
+}
+.game:hover {
+    border: 2px white solid;
+}
+
+.gamestage {
+    padding: 10px;
+    display: inline-block;
+}
+
+.game img {
+    width: 100%;
+}
+
+.borderRadiusImg {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game .gametitle {
+    color: white!important;
+    margin-top: 35%;
+    margin-left: -20%;
+    font-weight: 500;
+}
+
+.num-group {
+    width: 100px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+}
+.num-group h4 {
+    color: white;
+}
+.num-group p {
+    opacity: 0.5;
+    color: white;
+    font-weight: 400;
+}
+.setting {
+    color: white;
+    width: 60%;
+}
+.setting h1, h2, h3, h4, h5, p {
+    color: white;
+}
+
+.game .gamever {
+    color: white!important;
+    margin-top: -30%;
+    margin-left: -20%;
+    opacity: 0.5;
+}
+
+.btnico {
+    background: none;
+    color: white
+}
+
+.btnnobg {
+    background: none;
+    color: white;
+    box-shadow: inset white 0px 0px 0px 2px;
+}
+.btnnobg:hover {
+    background: white;
+    color: black;
+    opacity: 1;
+}
+
+.usersection {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    width: 55%;
+}
+
+.friendAvatar {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+    padding: 15px;
+}
+
+.friendUsername {
+    font-size: 15px;
+}
+
+.friendOnline {
+    font-size: 10px;
+}
+
+.online {
+    color: #2cff63!important;
+    opacity: 1!important;
+}
+.offline {
+    opacity: 0.5;
+    color: white;
+}
+
+.numcircle {
+    background-color: #ff2828;
+    color: white;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    padding: 0px 3px;
+    border-radius: 100%;
+    font-size: 8px;
+    margin: 38px 38px;
+    border: 2px solid;
+    opacity: 0;
+    transition: .4s;
+}
+
+.beta-ico {
+    background-color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 5px;
+    font-size: 8px;
+    padding: 3px 5px;
+    margin: -38px 30px;
+    position: absolute;
+    color: black;
+    font-weight: 600;
+}
+
+.green {
+    background-color: #1bd11b;
+    opacity: 1;
+}
+.gray {
+    background-color: #565656;
+    opacity: 1;
+}
+
+
+.icosection {
+    margin-top: 10%;
+}
+
+.icosection .btnico {
+    padding: 5px;
+}
+
+.useravatar {
+    width: 50px;
+    height: 50px;
+    margin: 3px 4px;
+    box-shadow: #00000047 0px 0px 8px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 2px solid;
+}
+
+button {
+    background: rgb(255, 255, 255);
+    padding: 10px 20px;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+}
+button:hover {
+    opacity: 0.5;
+}
+.btn {
+    background: rgb(255, 255, 255);
+    padding: 10px 20px;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+}
+.btn:hover {
+    opacity: 0.5;
+}
+.btnnostyles {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: white;
+    line-height: 1.2;
+}
+
+p {
+    color: #726a84;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 0;
+}
+
+.heading-text > p {
+    font-size: 16px;
+}
+
+.section-heading > h2 {
+    font-weight: 300;
+    color: #5b32b4;
+    font-size: 48px;
+    margin: 0;
+}
+
+
+.section-heading {
+    margin-bottom: 60px;
+}
+
+.wellcome_area {
+    height: 80%;
+    position: relative;
+    z-index: 1;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+.welcome-thumb {
+    width: 42%;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    z-index: 9;
+}
+
+.appsarea {
+    width: 60%;
+}
+
+
+.wellcome-heading > h2 {
+    font-size: 80px;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    z-index: 3;
+}
+
+.get-start-area .email {
+    background: #9572e8;
+    height: 50px;
+    max-width: 260px;
+    border: none;
+    border-radius: 24px;
+    padding: 0px 15px;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #cec1f4;
+    opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #cec1f4;
+    opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+    color: #cec1f4;
+    opacity: 1;
+}
+
+.form-control::placeholder {
+    color: #cec1f4;
+    opacity: 1;
+}
+
+.get-start-area .email:focus {
+    border: none;
+    outline-offset: transparent !important;
+    border-radius: 30px;
+}
+
+.get-start-area .submit {
+    background-color: #fb397d;
+    color: #fff;
+    font-weight: 500;
+    display: inline-block;
+    border: none;
+    height: 50px;
+    min-width: 167px;
+    line-height: 46px;
+    text-align: center;
+    border-radius: 24px 24px 24px 0px;
+    margin-left: 10px;
+}
+
+.get-start-area .submit:hover {
+    background: #6f52e5;
+    color: #fff;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.wellcome-heading > p {
+    color: #fff;
+}
+
+.wellcome-heading > h3 {
+    font-size: 332px;
+    position: absolute;
+    top: -134px;
+    font-weight: 900;
+    left: -12px;
+    z-index: -1;
+    color: #fff;
+    opacity: .1;
+
+}
+
+.wellcome-heading {
+    margin-bottom: 50px;
+}
+
+input {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    padding: 10px 20px;
+    width: 500px;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.appStart {
+    color: white;
+    background: rgb(0 0 0 / 64%);
+    padding: 20px 20px;
+    border-radius: 10px;
+    width: 50%;
+    font-weight: 500;
+    transition: .4s;
+    backdrop-filter: blur(30px);
+    box-shadow: #00000087 0px 0px 10px 0px;
+    margin-top: -20%;
+    opacity: 0;
+}
+
+.appStart h3, p {
+    color: white!important;
+}
+
+.appStart h3 {
+    font-weight: 800;
+}
+.appStart p {
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+.appStartVis {
+    margin-top: 0;
+    opacity: 1;
+}
+
+.loadCircleHide {
+    margin: -20px;
+    opacity: 0;
+}
+
+.appStartHide {
+    margin-top: -20%;
+    opacity: 0;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
+
+ @-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.load {
+    width: 30px;
+    height: 30px;
+    border: solid 4px #ffffff;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transition: all 0.5s ease-in;
+    animation-name: rotate;
+    animation-duration: 1.0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: inline-block;
+    margin: -5px 5px;
+}
+
+/* checkboxs */
+
+.checkbox-custom, .radio-custom {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.checkbox-custom-label, .radio-custom-label {
+    position: relative;
+}
+
+.checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
+    content: '';
+    background: none;
+    border: 2px solid white;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 100px;
+    outline: none;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label:before {
+    background: white;
+    color: #fff;
+}
+
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+
+.radio-custom:checked + .radio-custom-label:before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    color: #bbb;
+}
+
+.other-params {
+    display: inline-block;
+    position: absolute;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    opacity: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.678);
+    color: #fff;
+    text-align: left;
+    border-radius: 10px;
+    padding: 15px 15px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 10;
+    margin: 0px 10px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

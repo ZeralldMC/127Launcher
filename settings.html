@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Settings</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript" src="setTheme.js"></script>
+    <script>
+        function readTextFile_userdataHere(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+//usage:
+readTextFile_userdataHere("userdata.json", function(text){
+    var data = JSON.parse(text);
+    var username = data["username"];
+    var usernameTag = document.getElementById("username");
+    usernameTag.innerHTML = username;
+    console.log(username)
+});
+    </script>
+</head>
+
+<body id="theme">
+    <br><br><br>
+    <section class="wellcome_area clearfix" id="home" style="height: 40%;">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <img style="width: 20%;padding:5px" src="https://127games.ml/websection/assets/launchername.png">
+                        <h2>Settings</h2>
+                    </div>
+                        <div class="setting" style="color: white!important;">
+                            <h4>App theme</h4>
+                            <br>
+                            <button onclick="setTheme('Amiac')">Amiac</button>
+                            <button onclick="setTheme('LifeStyle')">Life style</button>
+                            <button onclick="setTheme('GreenApple')">Green Apple</button>
+                            <br><br>
+                            <button onclick="setTheme('LightPurple')" style="margin-top: -5%;">Light Purple</button>
+                            <button onclick="setTheme('SpaceEngine')" style="margin-top: -5%;">Space Engine</button>
+                            <br><br>
+                            <button onclick="setTheme('EarthPerspective')" style="margin-top: -5%;">Earth Perspective</button>
+                            <button onclick="setTheme('Fauna')" style="margin-top: -5%;">Fauna</button>
+                            <button onclick="setTheme('MoonSide')" style="margin-top: -5%;">Moonside</button>
+                            <br><br>
+                            <h4>Other <font style="font-size:10px;opacity:0.5;">Some changes will take effect after restarting the application</font></h4>
+                            <div class="other-params">
+                                <div>
+                                    <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
+                                    <label for="checkbox-1" class="checkbox-custom-label">Enable beta functions</label>
+                                    <div class="tooltip"><i class="bi bi-question-circle-fill"></i>
+                                        <span class="tooltiptext">The function gives access to beta features. 
+                                            Some basic functions of the application can be 
+                                            changed in this mode, and bugs may appear when 
+                                            performing some tasks. If you're not sure if 
+                                            you want to test new features, leave the checkbox blank.</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox">
+                                    <label for="checkbox-2" class="checkbox-custom-label">Disable online</label>
+                                    <div class="tooltip"><i class="bi bi-question-circle-fill"></i>
+                                        <span class="tooltiptext">If enabled, your online will not be tracked. 
+                                            Your friends won't be able to see you online or not</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input id="checkbox-3" class="checkbox-custom" name="checkbox-3" type="checkbox">
+                                    <label for="checkbox-3"class="checkbox-custom-label">Big game style</label>  
+                                    <div class="tooltip"><i class="bi bi-question-circle-fill"></i>
+                                        <span class="tooltiptext">Changes style with game cells, they get bigger</span>
+                                    </div>  
+                                </div>
+                                <button style="margin-top:5%;" class="btnnobg" onclick="setOther()">Save all settings</button>
+                            </div>
+                            </form>
+                        </div>
+                </div>
+                <br>
+                    <br><br>
+                    <div class="welcome-thumb">
+                        <div class="usersection" align="left">
+                            <h6 style="color:white"><font class="numcircle" id="numcircle"></font>
+                                <span id="avatar"></span>
+                            <font style="margin-left:1%;" id="username">
+                                Username
+                            </font>
+                            <span id="userbadge1"></span>
+                            <span id="userbadge2"></span>
+                            </h6>
+                            <button class="btnico" onclick="goto('index.html')"><i class="bi bi-house-door-fill"></i></button>
+                            <font style="opacity:0.5;color:white;font-weight:400;" id="balance"><i class="bi bi-wallet2"></i> 0$</font>
+                            </div>
+                            <br>
+                            <div class="btnsection">
+                                <button onclick="logout()"><i class="bi bi-door-open-fill"></i></button> 
+                                <button class="btnnobg" onclick='openInBrowser("https://127games.ml/analytics/")'>Web analytics</button> 
+                        </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="stat.js"></script>
+    <script type="text/javascript" src="main_functions.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+$.getJSON("userdata.json", function(data) {
+    console.log("AJAX getJSON, username: " + data["username"]);
+    var doc = document.getElementById("username");
+    doc.innerHTML = data["username"]
+    var username = data["username"];
+    var udata_settings_value1 = data["EnableBetaFuncs"];
+    var udata_settings_value2 = data["DisableOnline"];
+    var udata_settings_value3 = data["setting_isFullGames"];
+    var isDisabledOnline = data["DisableOnline"];
+    setOthers_checkbox(udata_settings_value1, udata_settings_value2, udata_settings_value3);
+    if(isDisabledOnline == "false") {
+        document.getElementById("numcircle").classList.add("green");
+    }
+    else {
+        document.getElementById("numcircle").classList.add("gray");
+    }
+    if(isBetaTesting == "true") {
+        var warning = document.getElementById("betatesting_warning");
+        warning.innerHTML = "Beta testing";
+        document.getElementById("betafnc_manageaccount").innerHTML = "";
+    }
+    $.ajax({
+            url: "https://127games.ml/websection/api/user.php?name=" + username,
+            type: "POST",
+            dataType: "json",
+            crossDomain: true,
+            format: "json",
+            success:function(json){
+                console.log('Data from server: ' + JSON.stringify(json["id"])); 
+                var regdate = document.getElementById('regdate');
+                regdate.innerHTML = json["regdate"];     
+                var medals = document.getElementById('medals');
+                medals.innerHTML = json["medalscol"];         
+                var items = document.getElementById('items');
+                items.innerHTML = json["items"];  
+                var games = document.getElementById('games');
+                games.innerHTML = json["games"]; 
+                var ws_items = document.getElementById('ws_items');
+                ws_items.innerHTML = json["workshop_items"]; 
+                var cases = document.getElementById('cases');
+                cases.innerHTML = json["cases_opened"]; 
+                var balance = document.getElementById('balance');
+                balance.innerHTML = '<i class="bi bi-wallet2"></i> ' + json["bal"] + "$"; 
+                var verifyCheck = json["verify"];
+                var modCheck = json["mod"];
+                var modIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/modBadge.svg?u=" + makeid(8) + "'>"
+                var verifyIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/verifyBadge.svg?u=" + makeid(8) + "'>"
+                if(verifyCheck == "1") {
+                    if(modCheck == "0") {
+                        document.getElementById("userbadge1").innerHTML = verifyIcon;
+                        document.getElementById("userbadge2").innerHTML = "";
+                    }    
+                }
+                if(modCheck == "1") {
+                    if(verifyCheck == "0") {
+                        document.getElementById("userbadge1").innerHTML = modIcon;
+                        document.getElementById("userbadge1").innerHTML = "";
+                    }    
+                }
+                if(verifyCheck == "1") {
+                    document.getElementById("userbadge1").innerHTML = verifyIcon;    
+                }
+                if(modCheck == "1") {
+                    document.getElementById("userbadge2").innerHTML = modIcon;    
+                }
+                console.log(data["username"])
+            },
+            error:function(error){
+                console.log('message Error' + JSON.stringify(error));
+            }
+        }); 
+        } 
+    );
+    function setOthers_checkbox(value1, value2, value3) {
+    console.log("setOther_checkbox()");
+    var operator1 = value1;
+    var operator2 = value2;
+    var operator3 = value3;
+
+    if(operator1 == "true") {
+        console.log("op1 checked");
+        document.getElementById("checkbox-1").checked = true;
+    }
+    else {
+        console.log("op1 unchecked");
+        document.getElementById("checkbox-1").checked = false;
+    }
+    if(operator2 == "true") {
+        document.getElementById("checkbox-2").checked = true;
+    }
+    else {
+        document.getElementById("checkbox-2").checked = false;
+    }
+    if(operator3 == "true") {
+        document.getElementById("checkbox-3").checked = true;
+    }
+    else {
+        document.getElementById("checkbox-3").checked = false;
+    }
+}
+function setTheme(theme) {
+    var themeObject = document.getElementById("theme")
+    eel.setTheme(theme)
+    if(theme == "Amiac") {
+        console.log("amiac");
+        themeObject.className = "theme-amiac"
+    }
+    if(theme == "LifeStyle") {
+        console.log("Lifestyle");
+        themeObject.className = "theme-lifestyle"
+    }
+    if(theme == "GreenApple") {
+        console.log("GreenApple");
+        themeObject.className = "theme-greenapple"
+    }
+    if(theme == "Metalic") {
+        console.log("metalic");
+        themeObject.className = "theme-metalic"
+    }
+    if(theme == "LightPurple") {
+        console.log("lightpurple");
+        themeObject.className = "theme-lightpurple"
+    }
+    if(theme == "SpaceEngine") {
+        console.log("spaceengine");
+        themeObject.className = "theme-spaceengine"
+    }
+    if(theme == "EarthPerspective") {
+        console.log("earthperspective");
+        themeObject.className = "theme-earthperspective"
+    }
+    if(theme == "Fauna") {
+        console.log("fauna");
+        themeObject.className = "theme-fauna"
+    }
+    if(theme == "MoonSide") {
+        console.log("moonside");
+        themeObject.className = "theme-moonside"
+    }
+}
+function setOther() {
+    var operator1 = document.getElementById('checkbox-1').checked;
+    var operator2 = document.getElementById('checkbox-2').checked;
+    var operator3 = document.getElementById('checkbox-3').checked;
+
+    if(operator1 == true) {
+        console.log("op1: checked");
+        eel.setOther_betafuncs("true");
+    }
+    else {
+        console.log("op1: unchecked");
+        eel.setOther_betafuncs("false");
+    }
+    if(operator2 == true) {
+        console.log("op2: checked");
+        eel.setOther_disableOnline("true");
+    }
+    else {
+        console.log("op2: unchecked");
+        eel.setOther_disableOnline("false");
+    }
+    if(operator3 == true) {
+        console.log("op3: checked");
+        eel.setOther_bigGameStyle("true");
+    }
+    else {
+        console.log("op3: unchecked");
+        eel.setOther_bigGameStyle("false")
+    }
+}
+    </script>
+</body>
+</html>

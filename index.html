@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>127GAMES</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="setTheme.js"></script>
+    <link href="https://127games.ml/websection/assets/fonts/object-sans/use.css" rel="stylesheet">
+</head>
+
+<body id="theme">
+    <br><br><br>
+    <section class="wellcome_area clearfix" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <div class="appStart" id="appStart">
+                            <h3 id="appStartTitle"><div class="load" id="loadingCircle"></div> Proccesing...</h3>
+                            <p id="appStartDesc">Please wait while we check the files and run the application...</p>
+                        </div>
+                        <br>
+                        <p>
+                            <img style="width: 20%;padding:5px" src="https://127games.ml/websection/assets/launchername.png" align="center">
+                            <span id="betatesting_warning"></span>
+                        </p>
+                        <h2>Welcome!</h2>
+                        <h3>1.0</h3>
+                        <p><font id="greeting"></font>, how are you today?</p>
+                        <br>
+                        <h5 style="color: white">Choose game to start</h5>
+                    </div>
+                    <div class="appsarea">
+                    <div class="gamestage">
+                        <button id="10" onclick="downloadGame('10')" class="btnnostyles">
+                        <div class="game" id="setting_game_app1">
+                            <img src="https://127games.ml/websection/assets/pk512x512.png">
+                            <p class="gametitle">PARKURC...</p>
+                            <p class="gamever" id="app1"></p>
+                        </div>
+                    </div>
+                </button>
+                <div class="gamestage">
+                    <div class="game" id="setting_game_app2">
+                        <img src="https://127games.ml/websection/assets/pk512x512.png">
+                        <p class="gametitle">MsM</p> <span class="beta-ico" id="beta-ico">BETA</span>
+                        <p class="gamever" id="app2"></p>
+                    </div>
+                </div>
+                    <div class="gamestage">
+                        <div class="game" id="setting_game">
+                            <img src="https://127games.ml/websection/assets/kvota.png">
+                            <p class="gametitle">KVOTA</p> <span class="beta-ico" id="beta-ico2" style="margin-left: 50px;">BETA</span>
+                            <p class="gamever" id="app3"></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <br>
+                    <br><br>
+                    <div class="welcome-thumb">
+                    <div class="usersection" align="left">
+                    <h6 style="color:white"><font class="numcircle" id="numcircle"></font>
+                        <span id="avatar"></span>
+                    <font style="margin-left:1%;" id="username">
+                        Username <font style="opacity:0.5;" id="userid">#0000</font>
+                    </font>
+                    <span id="userbadge1"></span>
+                    <span id="userbadge2"></span>
+                    </h6>
+                        <button class="btnico" onclick="goto('stat.html')"><i class="bi bi-bar-chart-fill"></i></button>
+                        <span id="betafnc_manageaccount"></span>
+                        <font style="opacity:0.5;color:white;font-weight:400;" id="balance"><i class="bi bi-wallet2"></i> 0$</font>
+                    </div>
+                    <br>
+                    <div class="btnsection">
+                        <button onclick="logout()"><i class="bi bi-door-open-fill"></i></button> 
+                        <button class="btnnobg" onclick='openInBrowser("https://127games.ml/profile/register.php")'>Register account</button> 
+                        <br><br>
+                        <button class="btnico" onclick="goto('settings.html')"><i class="bi bi-gear-fill"></i></button>
+                        <button class="btnico" onclick='openInBrowser("https://127games.ml/discord/")'><i class="bi bi-discord"></i></button>
+                        <button class="btnico" onclick='openInBrowser("https://127games.ml/telegram/")'><i class="bi bi-telegram"></i></button>
+                        <span id="betafnc_studio"></span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    var d = new Date();
+    var time = d.getHours();
+    var objectToWrite = document.getElementById("greeting");
+
+    if (time < 12) {
+        objectToWrite.innerHTML = "<b>Good morning</b>";
+    }
+    if (time >= 12) {
+        objectToWrite.innerHTML = "<b>Good afternoon</b>";
+    }
+        $.getJSON("userdata.json", function(data) {
+            console.log("AJAX getJSON, username: " + data["username"]);
+            var doc = document.getElementById("username");
+            doc.innerHTML = data["username"];
+            var username = data["username"];
+            var isBetaTesting = data["EnableBetaFuncs"];
+            var setting_isFullGames = data["setting_isFullGames"];
+            var isDisabledOnline = data["DisableOnline"];
+            if(setting_isFullGames == "true") {
+                document.getElementById("beta-ico").style.marginLeft = "110px";
+                document.getElementById("beta-ico2").style.marginLeft = "128px";
+            }
+            if(isDisabledOnline == "false") {
+                document.getElementById("numcircle").classList.add("green");
+            }
+            else {
+                document.getElementById("numcircle").classList.add("gray");
+            }
+            if(isBetaTesting == "true") {
+                var warning = document.getElementById("betatesting_warning");
+                warning.innerHTML = "Beta testing";
+                document.getElementById("betafnc_manageaccount").innerHTML = "<button style='margin-left:-5%;padding-right: 50px;' onClick='RedirToFriends()' class='btnico'><i class='bi bi-people-fill'></i></button> <span style='margin: 12px -50px;' class='beta-ico'>BETA</span>";
+                document.getElementById("betafnc_studio").innerHTML = "<button style='margin-left:-5px;padding-right: 50px;' onClick='RedirToStudio()' class='btnico'><img style='width: 20px;margin: -10px 2px;' src='https://127games.ml/websection/assets/127studio_white.png'> STUDIO</button> <span style='margin: 12px -45px;' class='beta-ico'>BETA</span>";
+            }
+            $.ajax({
+                    url: "https://127games.ml/websection/api/user.php?name=" + username,
+                    type: "POST",
+                    dataType: "json",
+                    crossDomain: true,
+                    format: "json",
+                    success:function(json){
+                        console.log('Data from server: ' + JSON.stringify(json["id"])); 
+                        var balance = document.getElementById('balance');
+                        balance.innerHTML = '<i class="bi bi-wallet2"></i> ' + json["bal"] + "$"; 
+                        var verifyCheck = json["verify"];
+                        var modCheck = json["mod"];
+                        var modIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/modBadge.svg?u=" + makeid(8) + "'>"
+                        var verifyIcon = "<img class='userbadge' src='https://127games.ml/websection/assets/verifyBadge.svg?u=" + makeid(8) + "'>"
+                        if(verifyCheck == "1") {
+                            if(modCheck == "0") {
+                                document.getElementById("userbadge1").innerHTML = verifyIcon;
+                                document.getElementById("userbadge2").innerHTML = "";
+                            }    
+                        }
+                        if(modCheck == "1") {
+                            if(verifyCheck == "0") {
+                                document.getElementById("userbadge1").innerHTML = modIcon;
+                                document.getElementById("userbadge1").innerHTML = "";
+                            }    
+                        }
+                        if(verifyCheck == "1") {
+                            document.getElementById("userbadge1").innerHTML = verifyIcon;    
+                        }
+                        if(modCheck == "1") {
+                            document.getElementById("userbadge2").innerHTML = modIcon;    
+                        }
+                    },
+                    error:function(error){
+                        console.log('message Error' + JSON.stringify(error));
+                    }
+                }); 
+                } 
+            );
+            </script>
+</body>
+</html>

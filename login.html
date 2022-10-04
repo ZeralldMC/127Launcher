@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>127GAMES</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="setTheme.js"></script>
+</head>
+
+<body id="theme">
+    <br><br><br>
+    <section class="wellcome_area clearfix" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <img style="width: 20%;padding:5px" src="https://127games.ml/websection/assets/launchername.png">
+                        <h2>Login</h2>
+                        <p>Welcome to 127GAMES Game Launcher</p>
+                        <br>
+                        <h5 style="color: white">Welcome!</h5>
+                        <br>
+                        <div>
+                              <p style="color: white;font-weight: 500;">Login</p>
+                              <input type="text" id="username" placeholder="Your login..." required maxlength="50"/>
+                              <br><br>
+                              <p style="color: white;font-weight: 500;">Password</p>
+                              <input type="password" id="password" placeholder="Your password" required maxlength="50"/>
+                              <br><br>
+                              <button onclick="getLoginData()">Login</button>
+                              <br>
+                              <p style="color: white;font-weight: 500;" id="loginCheckReport"></p>
+                          </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
